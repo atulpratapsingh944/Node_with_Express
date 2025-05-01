@@ -1,0 +1,270 @@
+// let fs = require("fs");
+// // let fs = require("node.fs");
+// console.log(fs);
+
+// ! =========== Blocking or Synchronous execution ===============
+// ! 1) Creating a file
+// ? method name =writeFileSync()
+// ? format = writeFileSync("path/filename", "data")
+
+// console.log("start");
+// fs.writeFileSync("./data.txt","this is second statement");
+// console.log("file created");
+// console.log("middle");
+// console.log("end");
+
+// ! if file is not present at the ggiven path with the given name then  a new file will be created with the givne data ,
+// ! if file is already present , old data will be overwrite by the new data
+// without string the file will show the error 
+
+// ! UTF-8 is 
+
+// ! 2) reading/ fetching a file
+// ? method = readFleSync()
+// ? format = readFileSync("path", "encoding")
+
+
+// console.log("start");
+// let data = fs.readFileSync("./data.txt");
+// console.log(data.toString());  //? to convert buffer value to array we use toString()
+
+// ? encoding
+
+// let data = fs.readFileSync("./data.txt","hex");
+// console.log(data);
+
+// console.log("middle");
+// console.log("end");
+
+// ! copy the content of "fs.js" to new file "app.js"
+
+// let contents = fs.readFileSync()
+// fs.writeFileSync("./app.js", contents);
+// ! 3) Updating / appending a file(append ==>add at last)
+//? method = appendFileSync()
+// ? format ==> appendFileSync("path","data to be added")
+
+// console.log("start");
+
+// fs.appendFileSync("./demo.java","new data\n");
+// ?"/" ==> only forward slash means root folder ==> path module
+
+
+// console.log("middle");
+// console.log("end");
+
+// ! if the file is present it will append the data, if not the a new file will be created 
+
+// ! 4) deleting a file 
+// ? method name ==> unlinkSync()
+// ? format ==> unLikeSync("path")
+
+
+// fs.unlinkSync("../built_in/demo.java");
+// console.log("file deleted");
+
+// ! 5) Creating a Folder 
+// ? method name ==> mkdirSync()
+// ? format ==> mkdirSync("path/folder-name")
+
+// fs.mkdirSync("./nestedFolder");
+// console.log("folder created");
+
+
+// ! create a folder structure in the current directiry like this ==>
+    // ? ==> backend/controller/user.controller.js
+
+// fs.mkdirSync("./backend");
+// fs.mkdirSync("./backend/controller");
+// fs.writeFileSync("./backend/controller/user.controller.js","");
+
+// ! 6) to delete a folder 
+// ? method name ==> rmdirSync()
+// ? format ==> rmdirSync("path")
+// fs.rmdirSync("./nestedFolder");
+// console.log("folder deleted");
+
+
+// ! backend/controller/user.controller.js ==> delete this structure
+// fs.unlinkSync("./backend/controller/user.controller.js");
+// console.log("user 1")
+// fs.rmdirSync("./backend/controller");
+// fs.rmdirSync("./backend");
+
+// ! 7) renaming  a foler /file 
+// ? method name ==> renameSync()
+// ? format ==> renameSync("old-folder/file-name", "new-folder/file-name");
+
+
+// fs.renameSync("./data.text","./index.js");
+// console.log("Rename the file")
+// fs.renameSync("./Java/cc.txt","./Python/mm.js")
+// console.log("folder")
+
+// let a1 = 20;
+// let  b1 = 10;
+// if(a1 = 21 && b1++){
+//     a1--;
+//     b1++;
+// }
+// let c1 = ++a + b++;
+// console.log(a1, b1 , c1);
+
+// fs.renameSync("./data.text","./index.js");
+// console.log("Rename the file")
+// fs.renameSync("./Java/cc.txt","./Python/mm.js")
+// console.log("folder")
+
+
+
+//! creating a file asynchronosolyl
+
+//? method name => writeFile();
+//? format => writeFile("path/filename","data to be insetrd ",cb);
+
+//? call stack == ain thread
+
+// console.log("Start");
+
+//! call first errro == we pass the first argument as error , to handle file it 
+// fs.writeFile("./demo.text","This is first line",(err)=>{
+//     if(err) console.log(err);
+//     console.log("File is created");
+// })
+
+// console.log("Midddle");
+// console.log("End");
+
+//! if the file is already present then it will over-written 
+
+//! 2) reading a file 
+//? method name ==> readFile();
+//? format ==> readFile("path","encoding",cb)
+
+// console.log("Staart");
+
+// fs.readFile("./demo.text","UTF-8",(error,data)=>{
+//     if(error) console.log("err from callback :" +error);
+//     console.log("File read");
+//     console.log(data);
+// });
+
+// console.log("Middle");
+// console.log("End");
+
+// //! copy the content of fs.js to "data.txt";
+
+// fs.readFile("./fs.js","UTF-8",(err,data)=>{
+//     if(err) console.log(err);
+
+//     fs.writeFile("./data.text",data,(err)=>{
+//         if(err) console.log(err);
+//         console.log("File created");
+//     })
+// })
+
+//! updating / appending a file 
+
+//? method name = appendFile();
+//? format = appendFile("path","new data ", cb)
+
+// fs.appendFile("./demo.text","\n\t\t\t second line 3",(err)=>{
+//     if(err) console.log(err);
+//     console.log("File updated");
+// });
+
+//string  literals ==> ``
+
+//! delecting a file 
+
+//? method name = unlink();
+//?format ==> unlink("path",cb)
+
+// fs.unlink("./data.text",(err)=>{
+//     if(err) console.log(err);
+//     console.log("File Delected");
+// })
+
+//! Node /backend /routes /userRoutes.js
+
+// fs.mkdir("./Node",(err)=>{
+//     if(err) console.log("Folder is Creaded")
+// });
+// fs.mkdir("./Node/backend",(err)=>{
+//     if(err) console.log("backend is Creaded")
+// });
+// fs.mkdir("./Node/backend/routes",(err)=>{
+//     if(err) console.log("routes is Creaded");
+// });
+// fs.writeFile("./Node/backend/routes/userRoues.js",(err)=>{
+//     if(err) console.log(err);
+//     console.log("User Roues is Created");
+
+// })
+
+// console.log("Folder Creaed");
+
+
+//! renaming the folder
+//? method name => rename();
+//? format ==> rename("old-folder","new-folder",cb)
+
+// fs.rename("./demo.text","demoo.txt",(err)=>{
+//     if(err) console.log(err);
+//     console.log("Folder is Rename");
+// })
+
+
+// ! =================using then  / catch ==============
+//  let fs = require("fs/promises");
+let fs  = require("fs").promises;
+// ? operations  perfomed using fs will return a promise
+
+// ! 1) creating a file
+// ? method name ===> writeFile()
+// ? format ==> writeFile().then().catch()
+
+console.log("start");
+// let output = fs.writeFile("./data.txt", "data");
+// output
+// .then(()=> {
+//     console.log("file created");
+// })
+// .catch((err)=> {
+//     console.log(err);
+
+// });
+
+console.log("middle");
+console.log("end");
+
+// ! 2) Reading a file 
+
+// let output = fs.readFile("./data.txt", "utf-8");
+// console.log(output);
+// output
+// .then((data)=> {
+//     console.log("file raed");
+//     console.log(data);
+// })
+// .catch((err)=> {
+//     console.log(err);
+
+// })
+
+// !copy the content of "fs.js" into a new file "demo.txt" 
+let readFile= fs.readFile("./fs.js", "utf-8");
+
+readFile
+.then((data)=>{
+let writeFile = fs.writeFile("./demo.txt",  data);
+writeFile
+.then(()=> {
+    console.log("file copied");
+  
+})
+.catch((err)=> {
+    console.log(err);
+
+})
+})
